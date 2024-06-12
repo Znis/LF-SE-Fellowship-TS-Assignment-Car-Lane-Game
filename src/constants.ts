@@ -14,3 +14,4 @@ export const VEHICLE_WIDTH = 80;
 export const VEHICLE_HEIGHT = 160;
 export const OFFSET = Math.floor((LANE_WIDTH - VEHICLE_WIDTH) / 2);
 export const SPEED = 4;
+

@@ -95,6 +95,7 @@ export function spawnOpponentAndUpdateScore() {
 
 function updateScore() {
   stateVariables.score++;
+  stateVariables.highScore = stateVariables.score > stateVariables.highScore ? stateVariables.score : stateVariables.highScore;
 }
 
 export function restartGame() {
