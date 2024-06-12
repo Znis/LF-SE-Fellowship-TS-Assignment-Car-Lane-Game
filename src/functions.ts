@@ -141,7 +141,7 @@ export function initialisePlayerAndOpponents() {
     new Point(OFFSET, DIMENSIONS.CANVAS_HEIGHT - VEHICLE_HEIGHT * 1.1),
     VEHICLE_HEIGHT,
     VEHICLE_WIDTH,
-    "/assets/images/car1.png"
+    "./assets/images/car1.png"
   );
   for (let i = 0; i < LANE_COUNT; i++) {
     const opponentCar = new Car(
@@ -151,7 +151,7 @@ export function initialisePlayerAndOpponents() {
       ),
       VEHICLE_HEIGHT,
       VEHICLE_WIDTH,
-      `/assets/images/opponent-car${i + 2}.png`
+      `./assets/images/opponent-car${i + 2}.png`
     );
     stateVariables.opponentCarArray.push(opponentCar);
   }
