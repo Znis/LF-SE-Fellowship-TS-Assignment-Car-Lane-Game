@@ -8,10 +8,10 @@ export const RANDOM_INT = {
   MAX: -2000,
 }; //random int range for spawning the opponent in Y axis.
 
-export const LANE_COUNT = 3;
-export const LANE_WIDTH = Math.floor(DIMENSIONS.CANVAS_WIDTH / LANE_COUNT);
-export const VEHICLE_WIDTH = 80;
-export const VEHICLE_HEIGHT = 160;
-export const OFFSET = Math.floor((LANE_WIDTH - VEHICLE_WIDTH) / 2);
-export const SPEED = 4;
+export const LANE_COUNT: number = 3;
+export const LANE_WIDTH: number = Math.floor(DIMENSIONS.CANVAS_WIDTH / LANE_COUNT);
+export const VEHICLE_WIDTH: number = 80;
+export const VEHICLE_HEIGHT: number = 160;
+export const OFFSET: number = Math.floor((LANE_WIDTH - VEHICLE_WIDTH) / 2);
+export const SPEED: number = 4;
 

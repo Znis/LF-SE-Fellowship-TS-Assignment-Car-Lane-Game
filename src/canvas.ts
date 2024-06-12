@@ -20,7 +20,7 @@ for (let i = 0; i < LANE_COUNT - 1; i++) {
   lineArray.push(line);
 }
 
-export default function drawCanvas() {
+export default function drawCanvas(): void {
   //the canvas's display was set to none while the user was on WelcomeScreen so, now set it to block
   canvas.style.display = "block"; 
 
@@ -72,13 +72,13 @@ canvas.addEventListener("click", () => {
   }
 });
 
-function drawScore() {
+function drawScore(): void {
   ctx.font = "24px Outfit";
   ctx.fillStyle = "#fff";
   ctx.fillText("Score: " + stateVariables.score, 10, 30);
 }
 
-export function drawGameOver() {
+export function drawGameOver(): void {
   ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.font = "48px Outfit";
@@ -103,7 +103,7 @@ export function drawGameOver() {
     canvas.height / 2 + 140
   );
 }
-export function drawGamePause() {
+export function drawGamePause(): void {
   ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.font = "48px Outfit";

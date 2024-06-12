@@ -21,14 +21,14 @@ export function playerCarTransition(
   playerCar: Rectangle,
   direction: string,
   moveUpto: number
-) {
-  const targetPosition =
+): void {
+  const targetPosition: number =
     direction == "right"
       ? playerCar.startPoint.x + moveUpto
       : playerCar.startPoint.x - moveUpto;
   if (!stateVariables.isTransitionActive) {
     stateVariables.isTransitionActive = true;
-    const playerCarTransition = setInterval(() => {
+    const playerCarTransition: number = setInterval(() => {
       if (direction == "left" && playerCar.startPoint.x > targetPosition) {
         playerCar.startPoint.x -= 2;
       } else if (
@@ -46,8 +46,8 @@ export function playerCarTransition(
 
 /*function that generates random opponent spawn position on Y axis
  that is at least 3x VEHICLE_HEIGHT distance farther away than previously spawned opponent */
-export function getValidRandomYPosition(minY: number, maxY: number) {
-  let randomInt = getRandomInt(minY, maxY);
+export function getValidRandomYPosition(minY: number, maxY: number): number {
+  let randomInt: number = getRandomInt(minY, maxY);
   while (
     Math.abs(randomInt - stateVariables.prevValidRandomYposition) <
     VEHICLE_HEIGHT * 3
@@ -58,7 +58,7 @@ export function getValidRandomYPosition(minY: number, maxY: number) {
   return randomInt;
 }
 
-export function detectAndHandleCollision() {
+export function detectAndHandleCollision(): void {
   for (let i = 0; i < 3; i++) {
     const opponentCarBottomY =
       stateVariables.opponentCarArray[i].startPoint.y +
@@ -77,7 +77,7 @@ export function detectAndHandleCollision() {
 }
 
 //spawns the new opponent and updates the score if the playerCar avoids the opponent car successfully
-export function spawnOpponentAndUpdateScore() {
+export function spawnOpponentAndUpdateScore(): void {
   for (let i = 0; i < stateVariables.opponentCarArray.length; i++) {
     stateVariables.opponentCarArray[i].startPoint.y +=
       (SPEED + stateVariables.score / 5); //the game speed increases gradually respective to player's score
@@ -93,12 +93,12 @@ export function spawnOpponentAndUpdateScore() {
   }
 }
 
-function updateScore() {
+function updateScore(): void {
   stateVariables.score++;
   stateVariables.highScore = stateVariables.score > stateVariables.highScore ? stateVariables.score : stateVariables.highScore;
 }
 
-export function restartGame() {
+export function restartGame(): void {
   stateVariables.score = 0;
   stateVariables.gameOver = false;
   stateVariables.collisionOccurred = false;
@@ -107,21 +107,21 @@ export function restartGame() {
   requestAnimationFrame(draw);
 }
 
-export function pauseGame() {
+export function pauseGame(): void {
   if (stateVariables.gameState == GameState.running) {
     stateVariables.gameState = GameState.paused;
     cancelAnimationFrame(stateVariables.reqAnimFrame);
     drawGamePause();
   }
 }
-export function resumeGame() {
+export function resumeGame(): void {
   if (stateVariables.gameState == GameState.paused) {
     stateVariables.gameState = GameState.running;
     requestAnimationFrame(draw);
   }
 }
 
-export function startGame() {
+export function startGame(): void {
   stateVariables.gameState = GameState.initialisation;
   requestAnimationFrame(draw);
 }
@@ -131,13 +131,13 @@ export function updateLeaderboard(
   parentElement: HTMLOListElement,
   element: HTMLLIElement,
   username: string
-) {
+): void {
   element.innerHTML = `${username}  &nbsp; &nbsp;<b>${stateVariables.score}</b>`;
   parentElement.appendChild(element);
 }
 
 //initialises the playerCar and opponentCars as game starts or restarts
-export function initialisePlayerAndOpponents() {
+export function initialisePlayerAndOpponents(): void {
   stateVariables.playerCar = new Car(
     new Point(OFFSET, DIMENSIONS.CANVAS_HEIGHT - VEHICLE_HEIGHT * 1.1),
     VEHICLE_HEIGHT,
